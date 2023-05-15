@@ -22,6 +22,7 @@ namespace DinnerIn.Web.Migrations
                     ShortDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ServingSuggestions = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FeatureImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UrHandle = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PublishedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Chef = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Visible = table.Column<bool>(type: "bit", nullable: false)

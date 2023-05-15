@@ -1,0 +1,62 @@
+﻿@model List<DinnerIn.Web.Models.Domain.Recipe>
+
+@{
+}
+
+
+
+<div class="bg-secondary bg-opacity-10 py-2">
+    <div class="container">
+        <h1>All Recipes - Admin Functionality </h1>
+    </div>
+</div>
+
+
+
+<div class="container py-5">
+
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Heading</td>
+                    <td>Tags</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var recipe in Model)
+                {
+                    <tr>
+                        <td>@recipe.Id</td>
+                        <td>@recipe.Heading</td>
+                        <td>
+                            <div class="d-flex">
+                                @foreach (var tag in recipe.Tags)
+                                {
+                                    <span class="bagde bg-secondary me-1">@tag.Name</span>
+                                }
+                            </div>
+                        </td>
+                        <td>
+                            <a asp-area="" asp-controller="AdminRecipes" asp-action="Edit"
+                       asp-route-id="@recipe.Id">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    }
+    else
+    {
+        <p>No Recipes Found!</p>
+    }
+
+
+
+</div>

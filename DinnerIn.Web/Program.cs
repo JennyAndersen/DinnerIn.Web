@@ -13,6 +13,8 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DinnerInDbConnec
 
 //Dependency Injection 
 builder.Services.AddScoped<ITagRepository, TagRepository>();
+builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
+builder.Services.AddScoped<IImageRepository, CloudinaryImageRepository>();
 
 var app = builder.Build();
 
