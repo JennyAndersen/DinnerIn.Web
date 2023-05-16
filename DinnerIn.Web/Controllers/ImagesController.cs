@@ -1,5 +1,4 @@
-﻿
-using DinnerIn.Web.Repositories;
+﻿using DinnerIn.Web.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -12,11 +11,7 @@ namespace DinnerIn.Web.Controllers
     public class ImagesController : ControllerBase
     {
 
-        public IActionResult Index()
-        {
-            return Ok("This is the get images "); 
-        }
-        /*
+
         private readonly IImageRepository imageRepository;
 
         public ImagesController(IImageRepository imageRepository)
@@ -38,6 +33,6 @@ namespace DinnerIn.Web.Controllers
 
             return new JsonResult(new { link = imageURL });
         }
-        */
+
     }
 }
