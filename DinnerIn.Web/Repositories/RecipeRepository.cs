@@ -42,6 +42,12 @@ namespace DinnerIn.Web.Repositories
             return await dinnerInDbContext.Recipes.Include(x => x.Tags).FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public async Task<Recipe?> GetByUrlHandleAsync(string urlHandle)
+        {
+            return await dinnerInDbContext.Recipes.Include(x => x.Tags)
+                .FirstOrDefaultAsync(x => x.UrlHandle == urlHandle);
+        }
+
         public async Task<Recipe?> UpdateAsync(Recipe recipe)
         {
             var existingRecipe = await dinnerInDbContext.Recipes.Include(x => x.Tags).FirstOrDefaultAsync(x => x.Id == recipe.Id);

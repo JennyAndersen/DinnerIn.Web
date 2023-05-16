@@ -62,7 +62,12 @@
                         <p class=" =mb-5">@recipe.ServingSuggestions</p>
 
 
-                        <a class="btn - btn-dark" href="#"> Read more </a>
+                        <a class="btn - btn-dark" 
+                        asp-area=""
+                        asp-controller=""
+                        asp-action="Index"
+                        asp-route-urlHandle="@recipe.UrlHandle"
+                        > Read more </a>
                         
                     </div>
                 }

@@ -1,0 +1,20 @@
+﻿@model DinnerIn.Web.Models.Domain.Recipe
+
+@{
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6"></div>
+
+        @if (Model != null)
+        {
+            <h1 class="mb-3">@Model.Heading</h1>
+        } else
+        {
+            <p>Recipe not found!</p>
+        }
+
+    </div>
+
+</div>
