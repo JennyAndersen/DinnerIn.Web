@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<DinnerIn.Web.Models.Domain.Recipe>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -10,8 +12,7 @@
                 DinnerIn - Sparkling Spreads Edition
             </h1>
             <p class="lead">              
-                Welcome to our blog, where we celebrate all things sides, appetizers, and starters! Our website is the go-to destination for women who are looking to enhance their Girls Night with a touch of luxury and elegance.
-                If you're planning a sophisticated gathering with your friends, complete with sparkling drinks and delectable snacks, you've come to the right place. We curate and share a wide range of recipes, tips, and inspiration to help 
+                We curate and share a wide range of recipes, tips, and inspiration to help 
                 you create the perfect ambiance and elevate your culinary experience.
 
                 From elegant canapés to tantalizing finger foods, our blog showcases a variety of mouthwatering side dishes, tempting appetizers, and indulgent starters. We believe that every Girls Night should be a feast for the senses, 
@@ -24,15 +25,48 @@
             </p>
         </div>
 
-
-
-
-
-
-
-
-        <div class="col-12 col-lg-6"></div>
-
+        <div class="col-12 col-lg-6">
+            <img src="https://images.pexels.com/photos/3402697/pexels-photo-3402697.jpeg?auto=compress&cs=tinysrgb&w=400"
+                 alt="DinnerIn - SparklingSpreads"
+            class="d-blok mx-lg-aut img-fluid" width="300"/>
+        </div>
     </div>
+</div>
 
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            @if(Model != null && Model.Any())
+            {
+                foreach(var recipe in Model)
+                {
+                    <div class="mb-5 bg-light box-shadow p-5">
+                        <img src="@recipe.FeatureImageUrl" alt="@recipe.Heading" 
+                        class="mb-2 d-block img-fluid"/>
+
+                        <h2 class="mb-4">@recipe.Heading</h2>
+                        <p class="mb-4">
+                            Chef: @recipe.Chef
+                            <br/>
+                            Published Date: @recipe.PublishedDate.ToShortDateString()
+                        </p>
+
+                        <p class="mb-4">
+                            @foreach (var tag in recipe.Tags)
+                            {
+                                <span class="badge bg-secondary me-1">@tag.Name</span>
+                            }
+                        </p>
+
+                        <p class=" =mb-4">@recipe.ShortDescription</p>
+                        <p class=" =mb-5">@recipe.ServingSuggestions</p>
+
+
+                        <a class="btn - btn-dark" href="#"> Read more </a>
+                        
+                    </div>
+                }
+            }
+        </div>
+    </div>
 </div>
