@@ -9,7 +9,7 @@ namespace DinnerIn.Web.Models.ViewModels
         public string Content { get; set; }
         public string ShortDescription { get; set; }
         public string FeatureImageUrl { get; set; }
-        public string UrlHandle { get; set; }
+        public string? UrlHandle { get; set; }
         public DateTime PublishedDate { get; set; }
         public string ServingSuggestions { get; set; }
         public string Chef { get; set; }
