@@ -1,7 +1,7 @@
 ﻿using DinnerIn.Web.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection.Metadata.Ecma335;
+
 
 namespace DinnerIn.Web.Controllers
 {
@@ -26,26 +26,30 @@ namespace DinnerIn.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
-            var identityUser = new IdentityUser
+            if (ModelState.IsValid)
             {
-                UserName = registerViewModel.Username,
-                Email = registerViewModel.Email
-            };
-
-            var identityResult = await userManager.CreateAsync(identityUser, registerViewModel.Password);
-
-            if(identityResult.Succeeded)
-            {
-                //assign this user the User role
-
-                var roleIdentityResult = await userManager.AddToRoleAsync(identityUser, "User"); 
-                if(roleIdentityResult.Succeeded)
+                var identityUser = new IdentityUser
                 {
-                    //show success notification 
-                    return RedirectToAction("Register");
+                    UserName = registerViewModel.Username,
+                    Email = registerViewModel.Email
+                };
+
+                var identityResult = await userManager.CreateAsync(identityUser, registerViewModel.Password);
+
+                if (identityResult.Succeeded)
+                {
+                    //assign this user the User role
+
+                    var roleIdentityResult = await userManager.AddToRoleAsync(identityUser, "User");
+                    if (roleIdentityResult.Succeeded)
+                    {
+                        //show success notification 
+                        return RedirectToAction("Register");
+                    }
                 }
             }
-            return View("Register");
+
+            return View();
         }
         
         public IActionResult Login(string ReturnUrl)
@@ -55,25 +59,32 @@ namespace DinnerIn.Web.Controllers
                 ReturnUrl = ReturnUrl 
             };
 
-            return View(); 
+            return View(model); 
         }
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
             var signInResult = await signInManager.PasswordSignInAsync(loginViewModel.Username,
                 loginViewModel.Password, false, false);
 
             if (signInResult != null && signInResult.Succeeded)
             {
-                if (string.IsNullOrEmpty(loginViewModel.ReturnUrl))
+                if (!string.IsNullOrWhiteSpace(loginViewModel.ReturnUrl))
                 {
                     return Redirect(loginViewModel.ReturnUrl);
                 }
+
                 return RedirectToAction("Index", "Home");
             }
 
-            return View(); 
+            // Show errors
+            return View();
 
         }
 
