@@ -1,4 +1,4 @@
-﻿@model DinnerIn.Web.Models.Domain.Recipe
+﻿@model DinnerIn.Web.Models.ViewModels.RecipeDetailsViewModel
 
 @{
     ViewData["Title"] = Model.PageTitle; 
@@ -20,7 +20,7 @@
             </div>
 
             <div class="mb-3">
-                99 likes
+                <span>@Model.TotalLikes </span>Likes
             </div>
 
            

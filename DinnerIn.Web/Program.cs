@@ -32,6 +32,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 builder.Services.AddScoped<ITagRepository, TagRepository>();
 builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
 builder.Services.AddScoped<IImageRepository, CloudinaryImageRepository>();
+builder.Services.AddScoped<IRecipeLikeRepository, RecipeLikeRepository>();
 
 var app = builder.Build();
 
