@@ -5,7 +5,7 @@ namespace DinnerIn.Web.Data
 {
     public class DinnerInDbContext : DbContext
     {
-        public DinnerInDbContext(DbContextOptions options) : base(options)
+        public DinnerInDbContext(DbContextOptions<DinnerInDbContext> options) : base(options)
         {
 
         }

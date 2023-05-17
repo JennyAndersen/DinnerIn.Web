@@ -1,5 +1,6 @@
 using DinnerIn.Web.Data;
 using DinnerIn.Web.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,11 @@ builder.Services.AddControllersWithViews();
 //Injektion av DBContext
 builder.Services.AddDbContext<DinnerInDbContext>(options => 
 options.UseSqlServer(builder.Configuration.GetConnectionString("DinnerInDbConnectionString")));
+
+builder.Services.AddDbContext<AuthDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DinnerInAuthDbConnectionString")));
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
 
 //Dependency Injection 
 builder.Services.AddScoped<ITagRepository, TagRepository>();
@@ -30,6 +36,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
