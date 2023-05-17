@@ -48,8 +48,13 @@ namespace DinnerIn.Web.Controllers
             return View("Register");
         }
         
-        public IActionResult Login()
+        public IActionResult Login(string ReturnUrl)
         {
+            var model = new LoginViewModel 
+            { 
+                ReturnUrl = ReturnUrl 
+            };
+
             return View(); 
         }
 
@@ -61,6 +66,10 @@ namespace DinnerIn.Web.Controllers
 
             if (signInResult != null && signInResult.Succeeded)
             {
+                if (string.IsNullOrEmpty(loginViewModel.ReturnUrl))
+                {
+                    return Redirect(loginViewModel.ReturnUrl);
+                }
                 return RedirectToAction("Index", "Home");
             }
 
@@ -73,6 +82,12 @@ namespace DinnerIn.Web.Controllers
         {
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
 
     } 

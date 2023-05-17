@@ -1,12 +1,14 @@
 ﻿using DinnerIn.Web.Models.Domain;
 using DinnerIn.Web.Models.ViewModels;
 using DinnerIn.Web.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace DinnerIn.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminRecipesController : Controller
     {
         private readonly ITagRepository tagRepository;

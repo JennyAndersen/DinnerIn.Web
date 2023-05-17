@@ -2,11 +2,13 @@
 using DinnerIn.Web.Models.Domain;
 using DinnerIn.Web.Models.ViewModels;
 using DinnerIn.Web.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bloggie.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminTagsController : Controller
     {
         private readonly ITagRepository tagRepository;
@@ -16,13 +18,12 @@ namespace Bloggie.Web.Controllers
             this.tagRepository = tagRepository;
         }
 
-
+        
         [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
-
 
         [HttpPost]
         [ActionName("Add")]
@@ -49,7 +50,7 @@ namespace Bloggie.Web.Controllers
 
             return View(tags);
         }
-
+     
         [HttpGet]
         public async Task<IActionResult> Edit(Guid id)
         {
@@ -72,7 +73,6 @@ namespace Bloggie.Web.Controllers
 
             return View(null);
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Edit(EditTagRequest editTagRequest)
@@ -100,6 +100,7 @@ namespace Bloggie.Web.Controllers
 
         }
 
+        [HttpPost]
         public async Task<IActionResult> Delete(EditTagRequest editTagRequest)
         {
             var deletedTag = await tagRepository.DeleteAsync(editTagRequest.Id);

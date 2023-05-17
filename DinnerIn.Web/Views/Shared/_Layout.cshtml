@@ -27,46 +27,51 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Admin
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminTags"
-                                       asp-action="Add">
-                                        Add Tag
-                                    </a>
-                                </li>
 
-                                <li>
-                                    <a class="dropdown-item"
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Admin
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item"
+                                       asp-area=""
+                                       asp-controller="AdminTags"
+                                       asp-action="Add">
+                                            Add Tag
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="dropdown-item"
                                        asp-area=""
                                        asp-controller="AdminTags"
                                        asp-action="List">
-                                        Show All Tags
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item"
+                                            Show All Tags
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item"
                                        asp-area=""
                                        asp-controller="AdminRecipes"
                                        asp-action="Add">
-                                        Add Recipe
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item"
+                                            Add Recipe
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item"
                                        asp-area=""
                                        asp-controller="AdminRecipes"
                                        asp-action="List">
-                                        All Recipes
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                                            All Recipes
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                     
 
                     </ul>
 
