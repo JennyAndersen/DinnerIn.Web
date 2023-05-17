@@ -15,6 +15,9 @@
         public string Chef { get; set; }
         public bool Visible { get; set; }
 
+        //Navigation property 
         public ICollection<Tag> Tags { get; set; }
+
+        public ICollection<RecipeLike> Likes { get; set; }
     }
 }

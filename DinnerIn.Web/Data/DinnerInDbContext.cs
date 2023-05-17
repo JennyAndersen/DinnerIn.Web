@@ -13,6 +13,7 @@ namespace DinnerIn.Web.Data
         public DbSet<Recipe> Recipes { get; set; }
 
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<RecipeLike> RecipeLike { get; set; }
 
 
     }
