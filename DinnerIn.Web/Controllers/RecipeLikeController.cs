@@ -12,7 +12,7 @@ namespace DinnerIn.Web.Controllers
     {
         private readonly IRecipeLikeRepository recipeLikeRepository;
 
-        public RecipeLikeController(IRecipeLikeRepository blogPostLikeRepository)
+        public RecipeLikeController(IRecipeLikeRepository recipeLikeRepository)
         {
             this.recipeLikeRepository = recipeLikeRepository;
         }
@@ -22,6 +22,7 @@ namespace DinnerIn.Web.Controllers
         [Route("Add")]
         public async Task<IActionResult> AddLike([FromBody] AddLikeRequest addLikeRequest)
         {
+                 
             var model = new RecipeLike
             {
                 RecipeId = addLikeRequest.RecipeId,
@@ -31,6 +32,8 @@ namespace DinnerIn.Web.Controllers
             await recipeLikeRepository.AddLikeForRecipe(model);
 
             return Ok();
+
+           
         }
 
 

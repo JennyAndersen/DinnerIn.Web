@@ -19,5 +19,8 @@
         public ICollection<Tag> Tags { get; set; }
 
         public ICollection<RecipeLike> Likes { get; set; }
+        public ICollection<RecipeComment> Comments { get; set; }
+
+        
     }
 }

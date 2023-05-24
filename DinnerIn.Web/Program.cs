@@ -33,6 +33,7 @@ builder.Services.AddScoped<ITagRepository, TagRepository>();
 builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
 builder.Services.AddScoped<IImageRepository, CloudinaryImageRepository>();
 builder.Services.AddScoped<IRecipeLikeRepository, RecipeLikeRepository>();
+builder.Services.AddScoped<IRecipeCommentRepository, RecipeCommentRepository>();
 
 var app = builder.Build();
 
