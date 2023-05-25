@@ -6,8 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DinnerIn.Web", "DinnerIn.Web\DinnerIn.Web.csproj", "{1B4BBEF2-04E5-4427-9E9E-4E522EF80BEA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EFFF7615-B04D-44A2-B5A7-0101AF418F11}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{60929F51-E644-48D0-83CC-110566844961}"
 	ProjectSection(SolutionItems) = preProject
 		DinnerIn.Web\dinnerin.png = DinnerIn.Web\dinnerin.png
 	EndProjectSection
