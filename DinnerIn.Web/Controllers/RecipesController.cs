@@ -55,7 +55,20 @@ namespace DinnerIn.Web.Controllers
 
                 }
 
+                //Get comments for recipe
+                var commentsDomainModel = await recipeCommentRepository.GetCommentsByRecipeAsync(recipe.Id);
 
+                var commentsForView = new List<Comment>(); 
+
+                foreach (var comment in commentsDomainModel)
+                {
+                    commentsForView.Add(new Comment
+                    {
+                        Description = comment.Description,
+                        DateAdded = comment.DateAdded,
+                        Username = (await userManger.FindByIdAsync(comment.UserId.ToString())).UserName
+                    }); 
+                }
                 
                 recipeDetailsViewModel = new RecipeDetailsViewModel
                 {
@@ -71,7 +84,8 @@ namespace DinnerIn.Web.Controllers
                     Visible = recipe.Visible,
                     Tags = recipe.Tags,
                     TotalLikes = totalLikes,
-                    Liked = liked
+                    Liked = liked,
+                    Comments = commentsForView,
                 };
             }
 
@@ -84,6 +98,7 @@ namespace DinnerIn.Web.Controllers
         {
            if(signInManager.IsSignedIn(User))
             {
+
                 var domainModel = new RecipeComment
                 {
                     RecipeId = recipeDetailsViewModel.Id,
@@ -94,7 +109,7 @@ namespace DinnerIn.Web.Controllers
 
 
                 await recipeCommentRepository.AddAsync(domainModel);
-                return RedirectToAction("Index", "Home", 
+                return RedirectToAction("Index", "Recipes", 
                     new {urlHandle = recipeDetailsViewModel.UrlHandle});
             }
 

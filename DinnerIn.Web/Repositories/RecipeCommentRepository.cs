@@ -1,5 +1,6 @@
 ﻿using DinnerIn.Web.Data;
 using DinnerIn.Web.Models.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace DinnerIn.Web.Repositories
 {
@@ -17,6 +18,11 @@ namespace DinnerIn.Web.Repositories
             await dinnerInDbContext.RecipeComment.AddAsync(recipeComment);
             await dinnerInDbContext.SaveChangesAsync(); 
             return recipeComment;
+        }
+
+        public async Task<IEnumerable<RecipeComment>> GetCommentsByRecipeAsync(Guid recipeId)
+        {
+           return await dinnerInDbContext.RecipeComment.Where(x => x.RecipeId == recipeId).ToListAsync();
         }
     }
 }
