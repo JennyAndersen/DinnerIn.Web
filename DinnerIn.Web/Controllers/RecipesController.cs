@@ -1,7 +1,6 @@
 ﻿using DinnerIn.Web.Models.Domain;
 using DinnerIn.Web.Models.ViewModels;
 using DinnerIn.Web.Repositories;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,7 +11,7 @@ namespace DinnerIn.Web.Controllers
         private readonly IRecipeRepository recipeRepository;
         private readonly IRecipeLikeRepository recipeLikeRepository;
         private readonly SignInManager<IdentityUser> signInManager;
-        private readonly UserManager<IdentityUser> userManger;
+        private readonly UserManager<IdentityUser> userManager;
         private readonly IRecipeCommentRepository recipeCommentRepository;
 
         public RecipesController(IRecipeRepository recipeRepository,
@@ -24,7 +23,7 @@ namespace DinnerIn.Web.Controllers
             this.recipeRepository = recipeRepository;
             this.recipeLikeRepository = recipeLikeRepository;
             this.signInManager = signInManager;
-            this.userManger = userManger;
+            this.userManager = userManger;
             this.recipeCommentRepository = recipeCommentRepository;
         }
 
@@ -45,7 +44,7 @@ namespace DinnerIn.Web.Controllers
                     //Get like for this blog for this user 
                     var likesForRecipe = await recipeLikeRepository.GetLikesForRecipe(recipe.Id);
 
-                    var userId = userManger.GetUserId(User); 
+                    var userId = userManager.GetUserId(User); 
 
                     if(userId != null)
                     {
@@ -66,7 +65,7 @@ namespace DinnerIn.Web.Controllers
                     {
                         Description = comment.Description,
                         DateAdded = comment.DateAdded,
-                        Username = (await userManger.FindByIdAsync(comment.UserId.ToString())).UserName
+                        Username = (await userManager.FindByIdAsync(comment.UserId.ToString())).UserName
                     }); 
                 }
                 
@@ -103,7 +102,7 @@ namespace DinnerIn.Web.Controllers
                 {
                     RecipeId = recipeDetailsViewModel.Id,
                     Description = recipeDetailsViewModel.CommentDescription,
-                    UserId = Guid.Parse(userManger.GetUserId(User)),
+                    UserId = Guid.Parse(userManager.GetUserId(User)),
                     DateAdded = DateTime.Now 
                 };
 
