@@ -610,6 +610,7 @@ ul {
 }
 
 .h1-title {
+    margin-top: 100px;
     font-size: 90px;
     line-height: 108px;
     text-transform: capitalize;
