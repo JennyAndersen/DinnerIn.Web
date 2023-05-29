@@ -33,10 +33,23 @@
                             <button class="menu-toggle"><span></span><span></span></button>
                             <nav class="header-menu">
                                 <ul class="menu food-nav-menu">
-                                    <li><a href="#home">Hem</a></li>
+                                    <li><a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
                                     <li><a href="#about">Om oss</a></li>
-                                    <li><a href="#menu">Login</a></li>
-                                    <li><a href="#gallery">Registrera</a></li>
+                                    <li>
+                                        <a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                                    </li>
+                                    <li>
+                                        <a asp-area=""
+                                           asp-controller="Account"
+                                           asp-action="Register">Registrera</a>
+                                    </li>
+                                    <li>
+                                        <a 
+                                           asp-area=""
+                                           asp-controller="Account"
+                                           asp-action="Logout">Logout</a>
+                                    </li>
+
                                 </ul>
                             </nav>
                             <div class="header-right">
@@ -56,7 +69,9 @@
         </header>
         <!-- header ends  -->
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow">
+
+
+@*        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DinnerIn</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -67,7 +82,7 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
+                        </li>*@
 
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                         {
