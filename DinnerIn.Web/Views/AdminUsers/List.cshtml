@@ -13,12 +13,13 @@
 <div>
     <div class="container py-5">
 
-        <div class="mb-3 d-flex justify-content-end">
-            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCreateUser">
-                Create User
-            </button>
-        </div>
-
+        @using (Html.BeginForm("List", "AdminUsers", FormMethod.Get))
+        {
+            <div>
+                <input type="text" name="searchString" placeholder="Sök användare" />
+                <input type="submit" value="Sök" />
+            </div>
+        }
 
         @if (Model.Users is not null || Model.Users.Any())
         {

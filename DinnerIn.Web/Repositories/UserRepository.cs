@@ -14,10 +14,17 @@ namespace DinnerIn.Web.Repositories
         }
 
 
-        public async Task<IEnumerable<IdentityUser>> GetAll()
+        public async Task<IEnumerable<IdentityUser>> GetAll(string searchString = null)
         {
             var users = await authDbContext.Users.ToListAsync();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(u => u.UserName.Contains(searchString) || u.Email.Contains(searchString)).ToList();
+            }
+
             
+
             var superAdminUser = await authDbContext.Users
                 .FirstOrDefaultAsync(x => x.Email == "superadmin@dinnerin.com"); 
 

@@ -21,20 +21,25 @@ namespace DinnerIn.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> List()
+        public async Task<IActionResult> List(string searchString)
         {
             var users = await userRepository.GetAll();
 
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(u => u.UserName.Contains(searchString) || u.Email.Contains(searchString));
+            }
+
             var usersViewModel = new UserViewModel();
-            usersViewModel.Users = new List<User>(); 
-            foreach(var user in users)
+            usersViewModel.Users = new List<User>();
+            foreach (var user in users)
             {
                 usersViewModel.Users.Add(new Models.ViewModels.User
                 {
                     Id = Guid.Parse(user.Id),
                     UserName = user.UserName,
                     EmailAddress = user.Email
-                }); 
+                });
             }
 
             return View(usersViewModel);
