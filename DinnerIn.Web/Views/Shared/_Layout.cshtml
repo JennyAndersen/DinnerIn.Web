@@ -32,7 +32,7 @@
                             <button class="menu-toggle"><span></span><span></span></button>
                             <nav class="header-menu">
                                 <ul class="menu food-nav-menu">
-                                    <li><a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
+                                    
                                     <li><a href="#about">Om oss</a></li>
 
                                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
@@ -100,6 +100,7 @@
                                     }
                                     else
                                     {
+                                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
                                         <li>
                                             <a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                                         </li>
