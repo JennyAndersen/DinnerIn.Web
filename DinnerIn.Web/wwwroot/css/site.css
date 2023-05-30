@@ -534,6 +534,8 @@ ul {
     height: 100%;
     padding-left: 30px;
     margin-top: 50px;
+    margin-bottom: 500px;
+
 }
 
 .banner-img {
@@ -543,7 +545,9 @@ ul {
     background-position: center;
     animation: biani 4.5s linear infinite alternate;
     box-shadow: 0 0px 20px rgba(36, 39, 37, 0.3);
+
 }
+
 
 @keyframes biani {
     0% {
