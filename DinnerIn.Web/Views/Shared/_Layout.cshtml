@@ -25,7 +25,10 @@
                     <div class="col-lg-2">
                         <div class="header-logo">
                             <a href="index.html">
+                            <a asp-area="" asp-controller="Home" asp-action="Index">
                                 <img src="https://res.cloudinary.com/dg0pw8dnr/image/upload/v1685436637/Logga2_kssr0j.jpg" width="90" height="90" alt="Logo">
+                            </a>
+
                             </a>
                         </div>
                     </div>
@@ -35,7 +38,6 @@
                             <nav class="header-menu">
                                 <ul class="menu food-nav-menu">
                                     
-                                    <li><a href="#about">Om oss</a></li>
 
                                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                                     {
@@ -91,8 +93,12 @@
 
                                     @if (signInManager.IsSignedIn(User))
                                     {
+                                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
+                                    <li>
+                                        <a asp-area="" asp-controller="About" asp-action="Index">Om oss</a>
+                                    </li>
                                         <li>
-                                            <a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                                            <a asp-area="" asp-controller="Account" asp-action="Logout">Logga ut</a>
                                         </li>
                                         <li>
                                             <div class="me-3 text-light">
@@ -109,6 +115,9 @@
                                         <li>
                                             <a asp-area="" asp-controller="Account" asp-action="Register">Registrera</a>
                                         </li>
+                                    <li>
+                                        <a asp-area="" asp-controller="About" asp-action="Index">Om oss</a>
+                                    </li>
                                     }
 
                                 </ul>
