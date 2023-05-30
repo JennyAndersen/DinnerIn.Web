@@ -10,4 +10,5 @@ Hur du öppnar DinnerIn projektet till Visual Studieo.
 3. I det högra hörnet inuti <code> finns det en knapp som står <code>, där kan du välja hur du vill ladda ner projektet. Äntligen
 som en zip fil, öppna det via Visual Studio eller clona via github länk.
 4. Efter valfri nerladdning ska projekts alla filer visas på Visual Studio.
+5. 
 *******
