@@ -13,114 +13,138 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
+
+@*    <style>
+        /* Anpassade CSS-regler för att ändra färgen på den klistrade (sticky) headern */
+        .site-header {
+            position: sticky;
+            top: 0;
+            background-color: #ff0000; /* Byt ut #ff0000 med önskad färgkod */
+            z-index: 9999;
+        }
+    </style>
+
+    <script>
+        // JavaScript för att göra headern klistrad
+        window.addEventListener('scroll', function () {
+            var header = document.querySelector('.site-header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+    </script>*@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow">
+
+        <header class="site-header">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DinnerIn</a> 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="About" asp-action="Index">Om oss</a>
-                        </li>
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                        {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Admin
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminTags"
-                                       asp-action="Add">
-                                            Add Tag
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminTags"
-                                       asp-action="List">
-                                            Show All Tags
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminRecipes"
-                                       asp-action="Add">
-                                            Add Recipe
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminRecipes"
-                                       asp-action="List">
-                                            All Recipes
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item"
-                                       asp-area=""
-                                       asp-controller="AdminUsers"
-                                       asp-action="List">
-                                            All Users
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        }
-                     
-
-                    </ul>
-
-                    <div class="d-flex align-items-center">
-
-                        @if (signInManager.IsSignedIn(User))
-                        {
-                            <div class="me-3 text-light"> 
-                                @User?.Identity?.Name
-                            </div>
-
-                            <a class=" btn me-3 bg-light text-dark"
-                           asp-area=""
-                           asp-controller="Account"
-                           asp-action="Logout">Logout</a>
-
-
-                        }
-                        else
-                        {
-                            <a class=" btn me-3 bg-light text-dark"
-                           asp-area=""
-                           asp-controller="Account"
-                           asp-action="Login">Login</a>
-
-                            <a class=" btn me-3 bg-light text-dark"
-                           asp-area=""
-                           asp-controller="Account"
-                           asp-action="Register">Register</a>
-                        }
-                      
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="header-logo">
+                            <a href="index.html">
+                                <img src="https://res.cloudinary.com/dg0pw8dnr/image/upload/v1685436637/Logga2_kssr0j.jpg" width="90" height="90" alt="Logo">
+                            </a>
+                        </div>
                     </div>
+                    <div class="col-lg-10">
+                        <div class="main-navigation">
+                            <button class="menu-toggle"><span></span><span></span></button>
+                            <nav class="header-menu">
+                                <ul class="menu food-nav-menu">
+                                    
+                                    <li><a href="#about">Om oss</a></li>
 
+                                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                                    {
+                                        
+@*                                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Admin
+                                            </a>*@
+
+                                                <li>
+                                                    <a 
+                                                   asp-area=""
+                                                   asp-controller="AdminTags"
+                                                   asp-action="Add">
+                                                        Add Tag
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a 
+                                                   asp-area=""
+                                                   asp-controller="AdminTags"
+                                                   asp-action="List">
+                                                        Show All Tags
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a 
+                                                   asp-area=""
+                                                   asp-controller="AdminRecipes"
+                                                   asp-action="Add">
+                                                        Add Recipe
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a 
+                                                   asp-area=""
+                                                   asp-controller="AdminRecipes"
+                                                   asp-action="List">
+                                                        All Recipes
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a 
+                                                   asp-area=""
+                                                   asp-controller="AdminUsers"
+                                                   asp-action="List">
+                                                        All Users
+                                                    </a>
+                                                </li>
+
+
+                                    }
+
+                                    @if (signInManager.IsSignedIn(User))
+                                    {
+                                        <li>
+                                            <a asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                                        </li>
+                                        <li>
+                                            <div class="me-3 text-light">
+                                                @User?.Identity?.Name
+                                            </div>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
+                                        <li>
+                                            <a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                                        </li>
+                                        <li>
+                                            <a asp-area="" asp-controller="Account" asp-action="Register">Registrera</a>
+                                        </li>
+                                    }
+
+                                </ul>
+                            </nav>
+                            <div class="header-right">
+@*                                <form action="#" class="header-search-form for-des">
+                                    <input type="search" class="form-input" placeholder="Search Here...">
+                                    <button type="submit">
+                                        <i class="uil uil-search"></i>
+                                    </button>
+                                </form>*@
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
+        </header>
+
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
