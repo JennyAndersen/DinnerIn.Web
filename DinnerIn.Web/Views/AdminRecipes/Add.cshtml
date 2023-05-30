@@ -7,57 +7,57 @@
 <div class="container py-5">
     <form method="post">
         <div class="mb-3">
-            <label class="form-label white-text">Heading</label>
+            <label class="form-label white-text">Recept Titel</label>
             <input type="text" class="form-control" id="heading" asp-for="Heading"/>
         </div>
         <div class="mb-3">
-            <label class="form-label white-text">Page Title</label>
+            <label class="form-label white-text">Sidotitel</label>
             <input type="text" class="form-control" id="pageTitle" asp-for="PageTitle" />
         </div>
         <div class="mb-3">
-            <label class="form-label white-text">Content</label>
+            <label class="form-label white-text">Innehåll</label>
             <textarea class="form-control" id="content" asp-for="Content"></textarea>
         </div>
         <div class="mb-3">
-            <label class="form-label white-text">Short Description</label>
+            <label class="form-label white-text">Kort Beskrivning</label>
             <input type="text" class="form-control" id="shortDescription" asp-for="ShortDescription" />
         </div>
 
         <div class="mb-3">
-            <label class="form-label white-text">Feature Image Upload</label>
+            <label class="form-label white-text">Ladda Upp Bild</label>
             <input type="file" id="featureImageUpload" class="form-control" />
             <img src="" id="featureImageDisplay" style="display:none; width: 300px;" />
         </div>
 
         <div class="mb-3">
-            <label class="form-label white-text">Feature Image URL</label>
+            <label class="form-label white-text">Bild Url</label>
             <input type="text" class="form-control" id="featureImageUrl" asp-for="FeatureImageUrl" />
         </div>
         <div class="mb-3">
-            <label class="form-label white-text">Url Handle</label>
+            <label class="form-label white-text">Url Hanterare</label>
             <input type="text" class="form-control" id="urlHandle" asp-for="UrlHandle" />
         </div>
         <div class="mb-3">
-            <label class="form-label white-text">Published Date</label>
+            <label class="form-label white-text">Publicerings Datum</label>
             <input type="date" class="form-control" id="publishedDate" asp-for="PublishedDate" />
         </div>
         <div class="mb-3">
-            <label class="form-label white-text">Serving Suggestions</label>
+            <label class="form-label white-text">Serverings Förslag</label>
             <input type="text" class="form-control" id="serveringSuggestions" asp-for="ServingSuggestions" />
         </div>
         <div class="mb-3">
-            <label class="form-label white-text">Chef</label>
+            <label class="form-label white-text">Kock</label>
             <input type="text" class="form-control" id="chef" asp-for="Chef" />
         </div>
         <div class="form-check">
             <input class="form-check-input" type="checkbox" id="visible" asp-for="Visible">
             <label class="form-check-label white-text">
-                Is Visible?
+                Synlig?
             </label>
         </div>
 
         <div class="mb-3">
-            <label class="form-label white-text">Tags</label>
+            <label class="form-label white-text">Taggar</label>
             <select class="form-select" asp-items="@Model.Tags"
             asp-for="SelectedTags">  </select>
 
@@ -65,7 +65,7 @@
 
         <div class="mb-3">
             <button type="submit" class="btn btn-light">
-                Save
+                Spara Recept!
             </button>
         </div>
 
