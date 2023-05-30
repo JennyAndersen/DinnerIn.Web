@@ -26,6 +26,11 @@ body {
     max-width: 100%;
 }
 
+/*vit text till olika sidor*/
+.white-text {
+    color: white;
+}
+
 /**login samt register*/
 
 .gradient-custom-2 {
