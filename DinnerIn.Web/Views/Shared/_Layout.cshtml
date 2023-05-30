@@ -9,10 +9,29 @@
     <title>@ViewData["Title"] - DinnerIn</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <link rel="stylesheet" href="~/DinnerIn.Web.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
     <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
+
+@*    <style>
+        /* Anpassade CSS-regler för att ändra färgen på den klistrade (sticky) headern */
+        .site-header {
+            position: sticky;
+            top: 0;
+            background-color: #ff0000; /* Byt ut #ff0000 med önskad färgkod */
+            z-index: 9999;
+        }
+    </style>
+
+    <script>
+        // JavaScript för att göra headern klistrad
+        window.addEventListener('scroll', function () {
+            var header = document.querySelector('.site-header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+    </script>*@
 </head>
 <body>
     <header>
@@ -23,7 +42,7 @@
                     <div class="col-lg-2">
                         <div class="header-logo">
                             <a href="index.html">
-                                <img src="https://res.cloudinary.com/dg0pw8dnr/image/upload/v1685089501/logga2_vmspmd.jpg" width="90" height="90" alt="Logo">
+                                <img src="https://res.cloudinary.com/dg0pw8dnr/image/upload/v1685436637/Logga2_kssr0j.jpg" width="90" height="90" alt="Logo">
                             </a>
                         </div>
                     </div>
