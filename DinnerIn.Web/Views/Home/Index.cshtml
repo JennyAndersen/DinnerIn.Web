@@ -4,12 +4,54 @@
     ViewData["Title"] = "Home Page";
 }
 
+    <div id="viewport">
+        <div id="js-scroll-content">
+            <section class="main-banner" id="home">
+                <div class="js-parallax-scene">
+                    <div class="banner-shape-1 w-100" data-depth="0.30">
+                        <img src="assets/images/champagne.png" alt="">
+                    </div>
+                    <div class="banner-shape-2 w-100" data-depth="1">
+                        <img src="assets/images/champagne.png" alt="">
+                    </div>
+                </div>
+                <div class="sec-wp">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="banner-text">
+                                    <h1 class="h1-title">
+                                        Välkommen till 
+                                        <span>DinnerIN</span>
+                                        
+                                    </h1>
+                                    <p>This is Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam eius
+                                        vel tempore consectetur nesciunt? Nam eius tenetur recusandae optio aperiam.</p>
+                                  
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="banner-img-wp">
+                                <div class="banner-img" style="background-image: url(https://images.squarespace-cdn.com/content/v1/5eb1211225719420f0c80392/1594125878478-V0T9907BCSZES8TZXLPQ/champagnesnacks.jpg?format=1500w);">
+                                    </div>
+                                </div>
+@*                                <div class="banner-img-text mt-4 m-auto">*@
+@*                                    <h5 class="h5-title">Your favorite recipes for snacks and sparkling nights!</h5>
+                                    <p>this is Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
 <div class="container col-xxl-8 px-4 py-5">
 
     <div class="row align-items-center g-5 py-5">
         <div class="col-12 col-lg-6">
             <h1 class="display-5 fw-bold lh-1 mb-3">
-                DinnerIn - Sparkling Spreads Edition
+                    Upptäck Höjdpunkten av Snackselegans!
             </h1>
             <p class="lead">              
                 We curate and share a wide range of recipes, tips, and inspiration to help 
@@ -18,10 +60,6 @@
                 From elegant canapés to tantalizing finger foods, our blog showcases a variety of mouthwatering side dishes, tempting appetizers, and indulgent starters. We believe that every Girls Night should be a feast for the senses, 
                 and we're here to guide you every step of the way.
 
-                Join our community of like-minded women who appreciate the finer things in life and share a passion for delightful bites and exquisite flavors. Whether you're a seasoned hostess or just getting started, our blog is here to 
-                inspire you and help you make every gathering a memorable and stylish affair.
-
-                Indulge in the world of sides, snacks, and starters with us and discover how to add a touch of luxury and elegance to your Girls Night. Cheers to good company, bubbling conversations, and unforgettable culinary experiences!
             </p>
         </div>
         
@@ -60,7 +98,7 @@
             {
                 foreach(var recipe in Model.Recipes)
                 {
-                    <div class="mb-5 bg-light box-shadow p-5">
+                    <div class="mb-5 bg-dark box-shadow p-5">
                         <img src="@recipe.FeatureImageUrl" alt="@recipe.Heading" 
                         class="mb-2 d-block img-fluid"/>
 
