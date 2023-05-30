@@ -8,7 +8,7 @@
 
     @if (Model != null && Model.Any())
     {
-        <table class="table">
+        <table class="table text-white">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -25,9 +25,11 @@
                         <td>@tag.Name</td>
                         <td>@tag.DisplayName</td>
                         <td>
-                            <a asp-area="" asp-controller="AdminTags"
-                       asp-action="Edit"
-                       asp-route-id="@tag.Id">Edit</a>
+                            <a asp-area="" asp-controller="AdminRags" asp-action="Edit"
+                       asp-route-id="@tag.Id">
+                                Edit
+                            </a>
+                           
                         </td>
                     </tr>
                 }
