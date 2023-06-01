@@ -30,6 +30,7 @@ namespace DinnerIn.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string urlHandle)
         {
+            // Hämta receptet med den angivna urlHandle
             var recipe = await recipeRepository.GetByUrlHandleAsync(urlHandle);
             var recipeDetailsViewModel = new RecipeDetailsViewModel();
             var liked = false; 
@@ -37,11 +38,12 @@ namespace DinnerIn.Web.Controllers
 
             if(recipe != null)
             {
+                // Hämta totala antalet gillanden för receptet
                 var totalLikes = await recipeLikeRepository.GetTotalLikes(recipe.Id);
 
                 if (signInManager.IsSignedIn(User))
                 {
-                    //Get like for this blog for this user 
+                    // Om användaren är inloggad, kontrollera om de har gillat receptet
                     var likesForRecipe = await recipeLikeRepository.GetLikesForRecipe(recipe.Id);
 
                     var userId = userManager.GetUserId(User); 
@@ -54,13 +56,14 @@ namespace DinnerIn.Web.Controllers
 
                 }
 
-                //Get comments for recipe
+                // Hämta kommentarer för receptet
                 var commentsDomainModel = await recipeCommentRepository.GetCommentsByRecipeAsync(recipe.Id);
 
                 var commentsForView = new List<Comment>(); 
 
                 foreach (var comment in commentsDomainModel)
                 {
+                    // Skapa en ny Comment-modell för visning
                     commentsForView.Add(new Comment
                     {
                         Description = comment.Description,
@@ -97,7 +100,7 @@ namespace DinnerIn.Web.Controllers
         {
            if(signInManager.IsSignedIn(User))
             {
-
+                // Skapa en RecipeComment-domänmodell från RecipeDetailsViewModel
                 var domainModel = new RecipeComment
                 {
                     RecipeId = recipeDetailsViewModel.Id,
@@ -106,8 +109,10 @@ namespace DinnerIn.Web.Controllers
                     DateAdded = DateTime.Now 
                 };
 
-
+                // Lägg till kommentaren i repository
                 await recipeCommentRepository.AddAsync(domainModel);
+
+                // Omdirigera tillbaka till Index-åtgärden för att uppdatera sidan
                 return RedirectToAction("Index", "Recipes", 
                     new {urlHandle = recipeDetailsViewModel.UrlHandle});
             }
