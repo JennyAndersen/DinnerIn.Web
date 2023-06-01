@@ -1,20 +1,20 @@
-﻿using CloudinaryDotNet;
+using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 
 namespace DinnerIn.Web.Repositories
 {
     public class CloudinaryImageRepository : IImageRepository
     {
-        private readonly IConfiguration configuration;
-        private readonly Account account;
+        private readonly IConfiguration configuration;// En referens till IConfiguration som används för att hämta Cloudinary-konfigurationsdata.
+        private readonly Account account;// En instans av Account för att hantera Cloudinary-kontoinformationen.
 
         public CloudinaryImageRepository(IConfiguration configuration)
         {
             this.configuration = configuration;
             account = new Account(
-                configuration.GetSection("Cloudinary")["CloudName"],
-                configuration.GetSection("Cloudinary")["ApiKey"],
-                configuration.GetSection("Cloudinary")["ApiSecret"]
+                configuration.GetSection("Cloudinary")["CloudName"],// Hämtar Cloudinary CloudName från konfigurationsdata
+                configuration.GetSection("Cloudinary")["ApiKey"], // Hämtar Cloudinary ApiKey från konfigurationsdata.
+                configuration.GetSection("Cloudinary")["ApiSecret"] // Hämtar Cloudinary ApiSecret från konfigurationsdata.
                );
         }
 
