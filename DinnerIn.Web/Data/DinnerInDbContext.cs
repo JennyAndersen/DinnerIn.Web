@@ -10,10 +10,10 @@ namespace DinnerIn.Web.Data
 
         }
 
-        public DbSet<Recipe> Recipes { get; set; }
-        public DbSet<Tag> Tags { get; set; }
-        public DbSet<RecipeLike> RecipeLike { get; set; }
-        public DbSet<RecipeComment> RecipeComment { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }// Definierar en DbSet-egenskap för entiteten "Recipe".
+        public DbSet<Tag> Tags { get; set; } // Definierar en DbSet-egenskap för entiteten "Tag".
+        public DbSet<RecipeLike> RecipeLike { get; set; }// Definierar en DbSet-egenskap för entiteten "RecipeLike".
+        public DbSet<RecipeComment> RecipeComment { get; set; } // Definierar en DbSet-egenskap för entiteten "RecipeComment".
 
     }
 }
