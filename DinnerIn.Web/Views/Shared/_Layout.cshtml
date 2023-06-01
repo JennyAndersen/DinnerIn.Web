@@ -19,123 +19,59 @@
 <body>
 
 
-        <header class="site-header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2">
-                        <div class="header-logo">
-                            <a href="index.html">
-                            <a asp-area="" asp-controller="Home" asp-action="Index">
-                                <img src="https://res.cloudinary.com/dg0pw8dnr/image/upload/v1685436637/Logga2_kssr0j.jpg" width="90" height="90" alt="Logo">
-                            </a>
-
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="main-navigation">
-                            <button class="menu-toggle"><span></span><span></span></button>
-                            <nav class="header-menu">
-                                <ul class="menu food-nav-menu">
-                                    
-
-                                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                                    {
-                                        
-@*                                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Admin
-                                            </a>*@
-
-                                                <li>
-                                                    <a 
-                                                   asp-area=""
-                                                   asp-controller="AdminTags"
-                                                   asp-action="Add">
-                                                        Skapa Tag
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a 
-                                                   asp-area=""
-                                                   asp-controller="AdminTags"
-                                                   asp-action="List">
-                                                        Visa Taggar
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a 
-                                                   asp-area=""
-                                                   asp-controller="AdminRecipes"
-                                                   asp-action="Add">
-                                                        Skapa Recept
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a 
-                                                   asp-area=""
-                                                   asp-controller="AdminRecipes"
-                                                   asp-action="List">
-                                                        Alla recept
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a 
-                                                   asp-area=""
-                                                   asp-controller="AdminUsers"
-                                                   asp-action="List">
-                                                        Alla användare
-                                                    </a>
-                                                </li>
-
-
-                                    }
-
-                                    @if (signInManager.IsSignedIn(User))
-                                    {
-                                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
-                                    <li>
-                                        <a asp-area="" asp-controller="About" asp-action="Index">Om oss</a>
-                                    </li>
-                                        <li>
-                                            <a asp-area="" asp-controller="Account" asp-action="Logout">Logga ut</a>
-                                        </li>
-                                        <li>
-                                            <div class="me-3 text-light">
-                                                @User?.Identity?.Name
-                                            </div>
-                                        </li>
-                                    }
-                                    else
-                                    {
-                                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
-                                        <li>
-                                            <a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
-                                        </li>
-                                        <li>
-                                            <a asp-area="" asp-controller="Account" asp-action="Register">Registrera</a>
-                                        </li>
-                                    <li>
-                                        <a asp-area="" asp-controller="About" asp-action="Index">Om oss</a>
-                                    </li>
-                                    }
-
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="#">
+                    <img src="https://res.cloudinary.com/dg0pw8dnr/image/upload/v1685436637/Logga2_kssr0j.jpg" width="90" height="90" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Admin
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="AdminTags" asp-action="Add">Skapa Tag</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="AdminTags" asp-action="List">Visa Taggar</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="AdminRecipes" asp-action="Add">Skapa Recept</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="AdminRecipes" asp-action="List">Alla recept</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="AdminUsers" asp-action="List">Alla användare</a></li>
                                 </ul>
-                            </nav>
-                            <div class="header-right">
-@*                                <form action="#" class="header-search-form for-des">
-                                    <input type="search" class="form-input" placeholder="Search Here...">
-                                    <button type="submit">
-                                        <i class="uil uil-search"></i>
-                                    </button>
-                                </form>*@
-                            </div>
-                        </div>
-                    </div>
+                            </li>
+                        }
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="About" asp-action="Index">Om oss</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Logout">Logga ut</a></li>
+                            <li class="nav-item">
+                                <div class="nav-link text-white">
+                                    @User?.Identity?.Name
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Hem</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="Account" asp-action="Register">Registrera</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" asp-area="" asp-controller="About" asp-action="Index">Om oss</a></li>
+                        }
+                    </ul>
                 </div>
-            </div>
-        </header>
+            </nav>
+        </div>
+    </header>
 
+
+
+ 
 
 
     <div class="container">
