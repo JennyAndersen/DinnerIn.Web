@@ -32,7 +32,8 @@ namespace DinnerIn.Web.Repositories
             {
                 users.Remove(superAdminUser);
             }
-            return users;
+            return users; 
+           
         }
     }
 }
