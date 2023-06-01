@@ -10,8 +10,10 @@ namespace DinnerIn.Web.Controllers
     [ApiController]
     public class RecipeLikeController : ControllerBase
     {
+        // Referens till repository för gilla-markeringar för recept
         private readonly IRecipeLikeRepository recipeLikeRepository;
-
+        
+        // Konstruktorn som injicerar repository för gilla-markeringar
         public RecipeLikeController(IRecipeLikeRepository recipeLikeRepository)
         {
             this.recipeLikeRepository = recipeLikeRepository;
