@@ -8,18 +8,26 @@ namespace DinnerIn.Web.Controllers
 {
     public class RecipesController : Controller
     {
+    
+        // Referens till recept-repository
         private readonly IRecipeRepository recipeRepository;
+        // Referens till repository för gilla-markeringar för recept
         private readonly IRecipeLikeRepository recipeLikeRepository;
+        // Hanterare för inloggning för IdentityUser-entiteter
         private readonly SignInManager<IdentityUser> signInManager;
+        // Hanterare för användarhantering för IdentityUser-entiteter
         private readonly UserManager<IdentityUser> userManager;
+        // Referens till repository för kommentarer till recept
         private readonly IRecipeCommentRepository recipeCommentRepository;
 
+        // Konstruktorn som injicerar olika beroenden till kontrollern
         public RecipesController(IRecipeRepository recipeRepository,
             IRecipeLikeRepository recipeLikeRepository,
             SignInManager<IdentityUser> signInManager, 
             UserManager<IdentityUser> userManger,
             IRecipeCommentRepository recipeCommentRepository)
         {
+            // Tilldela uppgifter till repository
             this.recipeRepository = recipeRepository;
             this.recipeLikeRepository = recipeLikeRepository;
             this.signInManager = signInManager;
@@ -32,7 +40,9 @@ namespace DinnerIn.Web.Controllers
         {
             // Hämta receptet med den angivna urlHandle
             var recipe = await recipeRepository.GetByUrlHandleAsync(urlHandle);
+            // Skapa en ny vymodell för receptdetaljer
             var recipeDetailsViewModel = new RecipeDetailsViewModel();
+            // Flagga för att indikera om receptet är gillat
             var liked = false; 
             
 
@@ -72,6 +82,7 @@ namespace DinnerIn.Web.Controllers
                     }); 
                 }
                 
+                // Skapa en RecipeDetailsViewModel med alla relevanta data för visning av receptet och kommentarerna
                 recipeDetailsViewModel = new RecipeDetailsViewModel
                 {
                     Id = recipe.Id,
@@ -90,7 +101,7 @@ namespace DinnerIn.Web.Controllers
                     Comments = commentsForView,
                 };
             }
-
+            // Returnera en vy med den skapade RecipeDetailsViewModel för att visa receptet och kommentarerna
             return View(recipeDetailsViewModel);
         }
 
