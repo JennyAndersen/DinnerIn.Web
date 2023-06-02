@@ -1,5 +1,6 @@
 html {
     font-size: 14px;
+
 }
 
 @media (min-width: 768px) {
@@ -692,21 +693,30 @@ p {
 
 
 
-
-.site-header .navbar-nav .nav-item .nav-link {
-    color: black;
-    transition: all 0.3s ease;
-}
-
-    .site-header .navbar-nav .nav-item .nav-link:hover {
-        color: black;
-        text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+/* change navbar background on collapse */
+@media (max-width: 768px) {
+    nav.navbar {
+        background: lightgray;
     }
-
-.site-header .navbar-nav .nav-item.dropdown .nav-link.dropdown-toggle:hover {
-    color: black;
-    text-shadow: none;
 }
+
+  
+  .site-header.navbar-collapsed .navbar-nav .nav-link {
+    color: white;
+  }
+  
+  .site-header.navbar-collapsed .navbar-nav .nav-link:hover {
+    text-shadow: none;
+  }
+  
+  .site-header.navbar-collapsed .navbar-nav .nav-item.dropdown .nav-link.dropdown-toggle:hover {
+    text-shadow: none;
+  }
+}
+
+
+
+
 
 
 
