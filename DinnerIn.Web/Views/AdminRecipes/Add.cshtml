@@ -9,51 +9,62 @@
         <div class="mb-3">
             <label class="form-label white-text">Recept Titel</label>
             <input type="text" class="form-control" id="heading" asp-for="Heading"/>
+            <span class="text-danger" asp-validation-for="Heading"></span>
         </div>
         <div class="mb-3">
             <label class="form-label white-text">Sidotitel</label>
             <input type="text" class="form-control" id="pageTitle" asp-for="PageTitle" />
+            <span class="text-danger" asp-validation-for="PageTitle"></span>
         </div>
         <div class="mb-3">
             <label class="form-label white-text">Innehåll</label>
             <textarea class="form-control" id="content" asp-for="Content"></textarea>
+            <span class="text-danger" asp-validation-for="Content"></span>
         </div>
         <div class="mb-3">
             <label class="form-label white-text">Kort Beskrivning</label>
             <input type="text" class="form-control" id="shortDescription" asp-for="ShortDescription" />
+            <span class="text-danger" asp-validation-for="ShortDescription"></span>
         </div>
 
         <div class="mb-3">
             <label class="form-label white-text">Ladda Upp Bild</label>
             <input type="file" id="featureImageUpload" class="form-control" />
             <img src="" id="featureImageDisplay" style="display:none; width: 300px;" />
+           
         </div>
 
         <div class="mb-3">
             <label class="form-label white-text">Bild Url</label>
             <input type="text" class="form-control" id="featureImageUrl" asp-for="FeatureImageUrl" />
+            <span class="text-danger" asp-validation-for="FeatureImageUrl"></span>
         </div>
         <div class="mb-3">
             <label class="form-label white-text">Url Hanterare</label>
             <input type="text" class="form-control" id="urlHandle" asp-for="UrlHandle" />
+            <span class="text-danger" asp-validation-for="UrlHandle"></span>
         </div>
         <div class="mb-3">
             <label class="form-label white-text">Publicerings Datum</label>
             <input type="date" class="form-control" id="publishedDate" asp-for="PublishedDate" />
+            <span class="text-danger" asp-validation-for="PublishedDate"></span>
         </div>
         <div class="mb-3">
             <label class="form-label white-text">Serverings Förslag</label>
             <input type="text" class="form-control" id="serveringSuggestions" asp-for="ServingSuggestions" />
+            <span class="text-danger" asp-validation-for="ServingSuggestions"></span>
         </div>
         <div class="mb-3">
             <label class="form-label white-text">Kock</label>
             <input type="text" class="form-control" id="chef" asp-for="Chef" />
+            <span class="text-danger" asp-validation-for="Chef"></span>
         </div>
         <div class="form-check">
             <input class="form-check-input" type="checkbox" id="visible" asp-for="Visible">
             <label class="form-check-label white-text">
                 Synlig?
             </label>
+            <span class="text-danger" asp-validation-for="Visible"></span>
         </div>
 
         <div class="mb-3">

@@ -26,23 +26,29 @@ namespace DinnerIn.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Add()
         {
-            // Hämta taggar från tagRepository
-            var tags = await tagRepository.GetAllAsync();
+            
+                // Hämta taggar från tagRepository
+                var tags = await tagRepository.GetAllAsync();
 
-            // Skapa en AddRecipeRequest-modell och tilldela 
-            //taggarna till SelectListItem-listan i modellen
-            var model = new AddRecipeRequest
-            {
-                Tags = tags.Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() })
-            };
+                // Skapa en AddRecipeRequest-modell och tilldela 
+                //taggarna till SelectListItem-listan i modellen
+                var model = new AddRecipeRequest
+                {
+                    Tags = tags.Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() })
+                };
 
-            return View(model);
+                return View(model);
+        
+           
         }
+
 
         // POST: Hantera begäran för att lägga till ett nytt recept
         [HttpPost]
         public async Task<IActionResult> Add(AddRecipeRequest addRecipeRequest)
         {
+  
+
             // Kartlägg vymodellen till domänmodellen
             var recipe = new Recipe
             {
