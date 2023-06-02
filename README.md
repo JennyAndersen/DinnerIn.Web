@@ -11,5 +11,6 @@ Hur du öppnar DinnerIn projektet till Visual Studieo.
 som en zip fil, öppna det via Visual Studio eller clona via github länk.
 4. Efter valfri nerladdning ska projekts alla filer visas på Visual Studio.
 5. använd Update-Database -Context DinnerInDbContext  i konsolen och sedan Add-Migration "Namn" -Context DinnerInDbContext för att uppdatera databasen.
+  6. Om ett felmeddelande kommer up när man skriver in tex ett recept är detta pga av att alla fält MÅSTE vara ifyllda. 
 
 *******
