@@ -10,6 +10,7 @@ namespace DinnerIn.Web.Controllers
     {
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
+        // Konstruktorn tar två parametrar: en UserManager för hantering av användare och en SignInManager för hantering av inloggning.
 
         // Konstruktor för att injicera UserManager och SignInManager
         public AccountController(UserManager<IdentityUser> userManager,
@@ -17,26 +18,32 @@ namespace DinnerIn.Web.Controllers
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            // Tilldelar parametrarna till motsvarande privata medlemsvariabler.
         }
 
         // GET: Visa registreringsvyn
         [HttpGet]
         public IActionResult Register()
         {
+            // En GET-action-metod som hanterar begäran till "Account/Register"-routen.
             return View();
+
+            // Returnerar en vyresultat för att visa en vy som matchar metoden (i det här fallet "Register").
+
         }
 
         // POST: Hantera registreringsbegäran
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
-            // Kontrollera om modellen är giltig
+            // En POST-action-metod som hanterar begäran till "Account/Register"-routen när formuläret skickas in.
+
             if (ModelState.IsValid)
             {
-
-                // Skapa en ny IdentityUser med användarnamn och e-postadress från vyn
+                // Kontrollerar om modellens tillstånd är giltigt, dvs. att valideringen för registerViewModel har passerat.
                 var identityUser = new IdentityUser
                 {
+                    // Skapar en ny instans av IdentityUser med användardata från registerViewModel.
                     UserName = registerViewModel.Username,
                     Email = registerViewModel.Email
                 };
@@ -44,20 +51,31 @@ namespace DinnerIn.Web.Controllers
                 // Skapa användaren med hjälp av UserManager
                 var identityResult = await userManager.CreateAsync(identityUser, registerViewModel.Password);
 
+                // Skapar en ny användare med hjälp av userManager genom att använda användardata från registerViewModel
+                // och det angivna lösenordet.
+
                 if (identityResult.Succeeded)
                 {
+                    // Kontrollerar om användarskapandet lyckades.
 
                     // Tilldela användaren rollen "User"
                     var roleIdentityResult = await userManager.AddToRoleAsync(identityUser, "User");
+                    // Lägger till den nyregistrerade användaren till rollen "User".
                     if (roleIdentityResult.Succeeded)
                     {
-                        // Visa en framgångsnotifikation och omdirigera till registreringsvyn 
+                        // Kontrollerar om tilldelningen av rollen lyckades.
+
+                        // Visa en framgångsrik notifikation.
+
                         return RedirectToAction("Register");
+                        // Utför en omdirigering till "Register" för att visa registreringsvyn igen.
                     }
                 }
             }
 
-            // Visa registreringsvyn igen om något gick fel
+            // Om modellens tillstånd inte är giltigt eller någon av de tidigare stegen misslyckades,
+            // returnera vyn igen för att visa eventuella felmeddelanden.
+
             return View();
         }
 
