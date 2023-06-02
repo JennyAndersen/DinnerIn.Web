@@ -16,6 +16,13 @@
             </div>
         }
 
+        <div class="mb-3 d-flex justify-content-end">
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCreateUser">
+                Create User
+            </button>
+        </div>
+
+
         @if (Model.Users is not null || Model.Users.Any())
         {
             <table class="table white-text">
@@ -55,6 +62,10 @@
 
 
     </div>
+
+
+
+
 </div>
 
 <form method="post">
@@ -63,7 +74,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Create New User</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCreateUser">Create New User</button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
