@@ -12,15 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DinnerIn.Web.Migrations.AuthDb
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20230525112425_latest")]
-    partial class latest
+    [Migration("20230614171438_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("ProductVersion", "7.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -169,15 +169,15 @@ namespace DinnerIn.Web.Migrations.AuthDb
                         {
                             Id = "8692abcc-1349-4abf-b49e-11379f2c5669",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ecedda10-899d-4e93-a82b-b5df625d4ab7",
+                            ConcurrencyStamp = "832d5bab-9250-48d8-80c7-71bbbbabcb66",
                             Email = "superadmin@dinnerin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@DINNERIN.COM",
                             NormalizedUserName = "SUPERADMIN@DINNERIN.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJ/UogEP6QIaYPkuxO8NCw2a6elkOqOIpwPwOELGrgQapxDpCzZUVrJ8wTfNOP2C5g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJws3dEcYlq1M9vVTrA4MIt1gTeuzZeIJBSyzFvJzDxMuPEaj2Zzu5NaqyFFSPz34g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "28b0b69e-9b58-464a-9a7d-af5ea889a992",
+                            SecurityStamp = "ca30ac9f-bb7d-46ba-bc8e-4fe7298a4f10",
                             TwoFactorEnabled = false,
                             UserName = "superadmin@dinnerin.com"
                         });

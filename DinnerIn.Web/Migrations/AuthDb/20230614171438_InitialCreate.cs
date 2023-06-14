@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DinnerIn.Web.Migrations.AuthDb
 {
     /// <inheritdoc />
-    public partial class CreatingAuthdb : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -171,7 +171,7 @@ namespace DinnerIn.Web.Migrations.AuthDb
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "8692abcc-1349-4abf-b49e-11379f2c5669", 0, "efdad86a-c578-457a-8ef5-4fb99673c042", "superadmin@dinnerin.com", false, false, null, "SUPERADMIN@DINNERIN.COM", "SUPERADMIN@DINNERIN.COM", "AQAAAAIAAYagAAAAEOCXdbQlCE7wAUa75JhSdn62TKtdydoZdQPCYnv286iyYUQ/h3BWXc/KrfFv7G1X/w==", null, false, "ab941930-ad7f-4519-91e6-53d9059fe019", false, "superadmin@dinnerin.com" });
+                values: new object[] { "8692abcc-1349-4abf-b49e-11379f2c5669", 0, "832d5bab-9250-48d8-80c7-71bbbbabcb66", "superadmin@dinnerin.com", false, false, null, "SUPERADMIN@DINNERIN.COM", "SUPERADMIN@DINNERIN.COM", "AQAAAAIAAYagAAAAEJws3dEcYlq1M9vVTrA4MIt1gTeuzZeIJBSyzFvJzDxMuPEaj2Zzu5NaqyFFSPz34g==", null, false, "ca30ac9f-bb7d-46ba-bc8e-4fe7298a4f10", false, "superadmin@dinnerin.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

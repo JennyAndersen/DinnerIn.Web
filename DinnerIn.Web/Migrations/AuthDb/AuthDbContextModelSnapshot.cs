@@ -17,7 +17,7 @@ namespace DinnerIn.Web.Migrations.AuthDb
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("ProductVersion", "7.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -166,15 +166,15 @@ namespace DinnerIn.Web.Migrations.AuthDb
                         {
                             Id = "8692abcc-1349-4abf-b49e-11379f2c5669",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "efdad86a-c578-457a-8ef5-4fb99673c042",
+                            ConcurrencyStamp = "832d5bab-9250-48d8-80c7-71bbbbabcb66",
                             Email = "superadmin@dinnerin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@DINNERIN.COM",
                             NormalizedUserName = "SUPERADMIN@DINNERIN.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOCXdbQlCE7wAUa75JhSdn62TKtdydoZdQPCYnv286iyYUQ/h3BWXc/KrfFv7G1X/w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJws3dEcYlq1M9vVTrA4MIt1gTeuzZeIJBSyzFvJzDxMuPEaj2Zzu5NaqyFFSPz34g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ab941930-ad7f-4519-91e6-53d9059fe019",
+                            SecurityStamp = "ca30ac9f-bb7d-46ba-bc8e-4fe7298a4f10",
                             TwoFactorEnabled = false,
                             UserName = "superadmin@dinnerin.com"
                         });
