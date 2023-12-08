@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DinnerIn.Web.Migrations
 {
     [DbContext(typeof(DinnerInDbContext))]
-    [Migration("20230614171319_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231208142540_InitCreate")]
+    partial class InitCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

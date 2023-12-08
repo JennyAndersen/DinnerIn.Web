@@ -171,7 +171,7 @@ namespace DinnerIn.Web.Migrations.AuthDb
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "8692abcc-1349-4abf-b49e-11379f2c5669", 0, "832d5bab-9250-48d8-80c7-71bbbbabcb66", "superadmin@dinnerin.com", false, false, null, "SUPERADMIN@DINNERIN.COM", "SUPERADMIN@DINNERIN.COM", "AQAAAAIAAYagAAAAEJws3dEcYlq1M9vVTrA4MIt1gTeuzZeIJBSyzFvJzDxMuPEaj2Zzu5NaqyFFSPz34g==", null, false, "ca30ac9f-bb7d-46ba-bc8e-4fe7298a4f10", false, "superadmin@dinnerin.com" });
+                values: new object[] { "8692abcc-1349-4abf-b49e-11379f2c5669", 0, "0db3e721-4687-4326-a53c-81233c499687", "superadmin@dinnerin.com", false, false, null, "SUPERADMIN@DINNERIN.COM", "SUPERADMIN@DINNERIN.COM", "AQAAAAIAAYagAAAAEFFzX/5aGBuxnmYZ+GKsL1Z2KYQn0zjZPBgXqO2n5x4gqQSwsJM//aLnSZn4tqsn1A==", null, false, "fd7de232-13e3-4eb9-a17e-e491b7c0c7ce", false, "superadmin@dinnerin.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

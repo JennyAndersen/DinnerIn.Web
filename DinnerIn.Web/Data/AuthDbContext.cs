@@ -31,7 +31,6 @@ namespace DinnerIn.Web.Data
                     NormalizedName = "Admin",
                     Id = adminRoleId,
                     ConcurrencyStamp = adminRoleId
-
                 },
                 // Skapar en superadmin-roll och tilldelar ID och namn.
                 new IdentityRole
@@ -92,9 +91,6 @@ namespace DinnerIn.Web.Data
             };
             // Lägger till superadmin-rollerna för superadmin-användaren i Change Tracker.
             builder.Entity<IdentityUserRole<string>>().HasData(superAdminRoles);
-
-            
-
         }
     }
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DinnerIn.Web.Migrations.AuthDb
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20230614171438_InitialCreate")]
+    [Migration("20230614172822_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -169,15 +169,15 @@ namespace DinnerIn.Web.Migrations.AuthDb
                         {
                             Id = "8692abcc-1349-4abf-b49e-11379f2c5669",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "832d5bab-9250-48d8-80c7-71bbbbabcb66",
+                            ConcurrencyStamp = "0db3e721-4687-4326-a53c-81233c499687",
                             Email = "superadmin@dinnerin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@DINNERIN.COM",
                             NormalizedUserName = "SUPERADMIN@DINNERIN.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJws3dEcYlq1M9vVTrA4MIt1gTeuzZeIJBSyzFvJzDxMuPEaj2Zzu5NaqyFFSPz34g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFFzX/5aGBuxnmYZ+GKsL1Z2KYQn0zjZPBgXqO2n5x4gqQSwsJM//aLnSZn4tqsn1A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ca30ac9f-bb7d-46ba-bc8e-4fe7298a4f10",
+                            SecurityStamp = "fd7de232-13e3-4eb9-a17e-e491b7c0c7ce",
                             TwoFactorEnabled = false,
                             UserName = "superadmin@dinnerin.com"
                         });
